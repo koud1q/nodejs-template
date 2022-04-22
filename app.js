@@ -1,12 +1,16 @@
 const path = require('path')
 const express = require('express')
 const { engine } = require('express-handlebars');
+const bodyParser = require('body-parser')
 
 const port = 3000
 const app = express()
 
 // konfiguracja zasobów statycznych
 app.use(express.static(path.join(__dirname, '/public')))
+
+// konfiguracja bodyParser
+app.use(bodyParser.urlencoded({ extended: false }))
 
 // konfiguracja silnika handlebars
 app.engine('handlebars', engine());
