@@ -2,10 +2,13 @@ const path = require('path')
 const express = require('express')
 const { engine } = require('express-handlebars');
 const bodyParser = require('body-parser')
+const mongoose =  require('mongoose')
 
 const port = 3000
 const app = express()
+const dbname = ''
 
+mongoose.connect(`mongodb://localhost/${dbname}`)
 app.use(express.static(path.join(__dirname, '/public')))
 
 app.use(bodyParser.urlencoded({ extended: false }))
